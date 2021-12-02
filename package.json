@@ -14,6 +14,25 @@
       "mode": "view"
     }
   ],
+  "preferences": [
+    {
+    "name": "instance",
+    "type": "textfield",
+    "required": true,
+    "title": "GitLab URL",
+    "description": "URL of your GitLab instance",
+    "placeholder": "URL of your GitLab instance e.g. https://gitlab.com"
+  },
+    {
+    "name": "token",
+    "type": "password",
+    "required": true,
+    "title": "API Token",
+    "description": "Your GitLab API token. `api` scope for read and write operations, `read_api` when you just want to read only commands.",
+    "link": "https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html",
+    "placeholder": "Enter your GitLab API token."
+  }
+  ],
   "dependencies": {
     "@raycast/api": "^1.26.1"
   },
