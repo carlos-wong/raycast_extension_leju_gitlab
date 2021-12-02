@@ -34,10 +34,18 @@
   }
   ],
   "dependencies": {
-    "@raycast/api": "^1.26.1"
+    "@raycast/api": "^1.26.1",
+    "@apollo/client": "^3.4.8",
+    "apollo-link-context": "^1.0.20",
+    "fuse.js": "^6.4.6",
+    "graphql": "^15.5.1",
+    "node-fetch": "^2.6.1",
+    "open": "^8.2.1"
   },
   "devDependencies": {
     "@types/node": "~16.10.0",
+    "@types/node-fetch": "^2.5.12",
+    "@types/open": "^6.2.1",
     "@types/react": "^17.0.28",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",

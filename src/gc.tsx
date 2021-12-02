@@ -1,24 +1,22 @@
-import { ActionPanel, CopyToClipboardAction,List,getPreferenceValues } from "@raycast/api";
+import { render,ActionPanel, CopyToClipboardAction,List,getPreferenceValues } from "@raycast/api";
 import { useEffect, useState } from "react";
+import { IssueList, IssueScope, IssueState } from "./components/issues";
 
 interface Preferences {
     instance?: string;
-    toke?: string;
+    token?: string;
 }
 
 
-export default function Command() {
+function Command() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setTimeout(() => setIsLoading(false), 2000);
         const preferences: Preferences = getPreferenceValues();
-        console.log("carlos dump preferences");
-        console.log(preferences);
-        preferences.name = "carlos";
 
     }, []);
-
+    
     return <List isLoading={isLoading}>{
         <List>
             <List.Item
@@ -32,3 +30,5 @@ export default function Command() {
         </List>
     }</List>;
 }
+
+render(<IssueList scope={IssueScope.created_by_me} state={IssueState.all} />);
