@@ -513,6 +513,23 @@ export class GitLab {
         return projects;
     }
 
+    async getGroupUsers(groupID: number): Promise<User[]> {
+        let params: { [key: string]: string } = {};
+        const userItems: User[] = await this.fetch(`/groups/${groupID}/members`, params = params, true)
+        .then((users) => {
+            return users.map((userdata: any, index: number) => ({
+                id: userdata.id,
+                name: userdata.name,
+                username: userdata.username,
+                web_url: userdata.web_url,
+                avatar_url: userdata.avatar_url,
+                state: userdata.state
+            }))
+        });
+        return userItems;
+    }
+
+
     async getUsers(args = { searchText: "", searchIn: "" }): Promise<User[]> {
         let params: { [key: string]: string } = {};
         if (args.searchText) {

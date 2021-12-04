@@ -1,6 +1,8 @@
-import { render,ActionPanel, CopyToClipboardAction,List,getPreferenceValues } from "@raycast/api";
-import { useEffect, useState } from "react";
+import { ActionPanel, CopyToClipboardAction,List,getPreferenceValues } from "@raycast/api";
 import { IssueList, IssueScope, IssueState } from "./components/issues";
+import { GroupUserList,UserList } from "./components/users";
+import { useEffect, useState } from "react";
+
 
 interface Preferences {
     instance?: string;
@@ -8,7 +10,7 @@ interface Preferences {
 }
 
 
-function Command() {
+export default function Command() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -16,19 +18,6 @@ function Command() {
         const preferences: Preferences = getPreferenceValues();
 
     }, []);
-    
-    return <List isLoading={isLoading}>{
-        <List>
-            <List.Item
-                title="Item 1"
-                actions={
-                    <ActionPanel>
-                        <CopyToClipboardAction content="👋" />
-                    </ActionPanel>
-                }
-            />
-        </List>
-    }</List>;
+    /* return(<IssueList scope={IssueScope.created_by_me} state={IssueState.all} />) */
+    return(<GroupUserList />);
 }
-
-render(<IssueList scope={IssueScope.created_by_me} state={IssueState.all} />);
