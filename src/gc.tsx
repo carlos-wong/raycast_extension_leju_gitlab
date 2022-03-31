@@ -14,7 +14,7 @@ export default function Command() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => setIsLoading(false), 2000);
+        setTimeout(() => setIsLoading(false), 200);
         const preferences: Preferences = getPreferenceValues();
 
     }, []);

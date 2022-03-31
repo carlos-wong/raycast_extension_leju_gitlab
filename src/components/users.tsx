@@ -34,7 +34,7 @@ export function GroupUserList(){
 
 export function KPIMarkUserListItem(props: { user: User }) {
     const user = props.user;
-    const kpi_marks = [ "#good","#warn","#work","#thumbs_up","#thumbs_down","thumbs_warn","#delemptywork"];
+    const kpi_marks = [ "#good","#warn","#work","#thumbs_up","#thumbs_down","thumbs_warn","#delemptywork", "#badcode"];
 
     var i = 0;
     return(<>
