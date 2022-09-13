@@ -10,6 +10,7 @@ import {
 import { User } from "../gitlabapi";
 import { gitlab } from "../common";
 import { useState, useEffect } from "react";
+var _ = require("lodash");
 
 export function GroupUserList(){
     const [searchText, setSearchText] = useState<string>();
@@ -34,12 +35,22 @@ export function GroupUserList(){
 
 export function KPIMarkUserListItem(props: { user: User }) {
     const user = props.user;
-    const kpi_marks = [ "#good","#warn","#work","#thumbs_up","#thumbs_down","thumbs_warn","#delemptywork", "#badcode"];
+    var origin_kpi_marks = [ "#good","#warn","#work","#thumbs_up","#thumbs_down","thumbs_warn","#emptywork", "#badcode","#delay"];
+
+    var del_origin_thumbs_keyword_mark = _.map(origin_kpi_marks,(value:string)=>{
+        return '#del' + _.split(value,"#")[1];
+    });
+
+    console.log("del_origin_thumbs_keyword_mark is:",del_origin_thumbs_keyword_mark);
+
+    var kpi_marks = _.concat(origin_kpi_marks,del_origin_thumbs_keyword_mark);
+
+    console.log("kpi_marks:",kpi_marks);
 
     var i = 0;
     return(<>
         {
-            kpi_marks?.map((markcomment) => (
+            kpi_marks?.map((markcomment:string) => (
                 <List.Item
                     id={user.id.toString() + markcomment}
                     title={user.username + " " +  markcomment + " " + user.username + " " +  markcomment}
