@@ -35,17 +35,17 @@ export function GroupUserList(){
 
 export function KPIMarkUserListItem(props: { user: User }) {
     const user = props.user;
-    var origin_kpi_marks = ["#good","#warn","#work","#thumbs_up","#thumbs_down","#thumbs_warn","#badcode","#delay"];
+    var origin_kpi_marks = ["#good","#warn","#work","#thumbs_up","#thumbs_down","#thumbs_warn","#badcode","#delay","#qa"];
 
     var del_origin_thumbs_keyword_mark = _.map(origin_kpi_marks,(value:string)=>{
         return '#del' + _.split(value,"#")[1];
     });
 
-    console.log("del_origin_thumbs_keyword_mark is:",del_origin_thumbs_keyword_mark);
+    /* console.log("del_origin_thumbs_keyword_mark is:",del_origin_thumbs_keyword_mark); */
 
     var kpi_marks = _.concat(origin_kpi_marks,del_origin_thumbs_keyword_mark);
 
-    console.log("kpi_marks:",kpi_marks);
+    /* console.log("kpi_marks:",kpi_marks); */
 
     var i = 0;
     return(<>
