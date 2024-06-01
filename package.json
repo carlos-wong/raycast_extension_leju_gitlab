@@ -12,6 +12,12 @@
       "title": "gc",
       "description": "create kpi mark comment ",
       "mode": "view"
+    },
+    {
+      "name": "gi",
+      "title": "gi",
+      "description": "search project by Path",
+      "mode": "view"
     }
   ],
   "preferences": [
